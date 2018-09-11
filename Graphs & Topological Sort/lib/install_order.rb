@@ -12,11 +12,9 @@ require 'topological_sort'
 
 def install_order(arr)
   max_id = arr.map {|tuple| tuple.first}.max
-  vertices = (1..max_id).map {|x| Vertex.new(x)}
+  verts = (1..max_id).map {|x| Vertex.new(x)}
 
-  arr.each do |tuple|
-    Edge.new(vertices[tuple.last - 1], vertices[tuple.first - 1])
-  end
+  arr.each {|tuple| Edge.new(verts[tuple.last - 1], verts[tuple.first - 1])}
 
-  topological_sort(vertices).map(&:value)
+  topological_sort(verts).map(&:value)
 end
