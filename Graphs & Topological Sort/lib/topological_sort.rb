@@ -26,5 +26,5 @@ def topological_sort(vertices)
     end
   end
 
-  counts.values.all? {|x| x == 0} ? sorted : Array.new
+  counts.values.all? {|x| x.zero?} ? sorted : Array.new
 end
