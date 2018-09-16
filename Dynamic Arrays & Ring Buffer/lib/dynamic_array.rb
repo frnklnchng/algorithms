@@ -45,9 +45,7 @@ class DynamicArray
     
     el = @store[0]
 
-    @length.times do |i|
-      @store[i] = @store[i + 1]
-    end
+    @length.times {|i| @store[i] = @store[i + 1]}
 
     @length -= 1
 
